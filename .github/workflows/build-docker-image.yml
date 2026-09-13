@@ -11,13 +11,14 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+# 【关键】权限移动到顶层，全局生效
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
